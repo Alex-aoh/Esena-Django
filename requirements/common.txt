@@ -1,0 +1,9 @@
+Django
+django-cors-headers
+djangorestframework
+drf-yasg
+Pillow
+python-dotenv
+python-jose
+requests
+
