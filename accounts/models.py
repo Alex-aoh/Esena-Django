@@ -19,7 +19,7 @@ class Account(models.Model):
 
     gender = models.CharField(verbose_name="Gender", max_length=1, choices=GENDER_CHOICES, blank=True, default="O")
 
-    birthday = models.DateField(verbose_name="Birthday", null=True, blank=True)
+    birthday = models.DateTimeField(verbose_name="Birthday", null=True, blank=True)
 
     management_registered = models.BooleanField(verbose_name="Management registered", default=False)
 

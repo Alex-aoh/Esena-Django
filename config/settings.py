@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'authz',
     'users',
     'accounts',
+    'social_profiles',
     'esena_api',
 
 ]

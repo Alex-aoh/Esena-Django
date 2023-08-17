@@ -1,10 +1,19 @@
-from rest_framework import viewsets, permissions, exceptions
+from rest_framework import viewsets, permissions, exceptions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import UsernameSerializer, EmailSerializer
 
 from common.exceptions import ServiceUnavailable
 from .services import username_check_available, email_check_available
+
+# class MyAccount(APIView):
+
+#     permission_classes = [permissions.IsAuthenticated]
+
+#     def get(self, request, format=None):
+#         queryset = Account.objects.filter
+#         serializer = AccountSerializer(queryset, many=True)
+#         return Response(serializer.data)
 
 
 class UsernamesCheckAvailable(APIView):
@@ -22,7 +31,8 @@ class UsernamesCheckAvailable(APIView):
             else:
                 return Response({"username": username, "used": check_result})
         else:
-            raise exceptions.ParseError(detail="Not username in json body.")
+            return Response(serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST)
 
 class EmailsCheckAvailable(APIView):
 
@@ -39,4 +49,5 @@ class EmailsCheckAvailable(APIView):
             else:
                 return Response({"email": email, "used": check_result})
         else:
-            raise exceptions.ParseError(detail="Not email in json body.")
+            return Response(serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST)

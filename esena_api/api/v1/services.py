@@ -8,6 +8,9 @@ from authz.auth0.auth0_management_token import requestToken
 from json import JSONDecodeError
 from common.exceptions import ServiceUnavailable
 
+
+
+
 def username_check_available(username):
         print(username)
     # request server check
