@@ -6,16 +6,6 @@ from .serializer import UsernameSerializer, EmailSerializer
 from common.exceptions import ServiceUnavailable
 from .services import username_check_available, email_check_available
 
-# class MyAccount(APIView):
-
-#     permission_classes = [permissions.IsAuthenticated]
-
-#     def get(self, request, format=None):
-#         queryset = Account.objects.filter
-#         serializer = AccountSerializer(queryset, many=True)
-#         return Response(serializer.data)
-
-
 class UsernamesCheckAvailable(APIView):
 
     permission_classes = [permissions.AllowAny]
